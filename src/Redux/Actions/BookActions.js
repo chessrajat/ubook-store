@@ -3,7 +3,7 @@ import { BASE_API, SELECT_BOOK, SET_BOOKS } from "../../Utils/Constants";
 
 export const getLatest = () => {
   return async (dispatch) => {
-    const endpoint = `${BASE_API}volumes?q=+inauthor:&orderBy=newest&maxResults=20`;
+    const endpoint = `${BASE_API}volumes?q=+inauthor:&orderBy=newest&maxResults=24`;
     try {
       const res = await axios.get(endpoint);
       console.log(res);
@@ -19,7 +19,7 @@ export const getLatest = () => {
 
 export const search = (uri) => {
   return async (dispatch) => {
-    const endpoint = `${BASE_API}${uri}&maxResults=20`;
+    const endpoint = `${BASE_API}${uri}&maxResults=24`;
     try {
       const res = await axios.get(endpoint);
       console.log(res.data);
@@ -28,7 +28,7 @@ export const search = (uri) => {
         payload: res.data.items,
       });
     } catch (err) {
-      console.err(err);
+      console.error(err);
     }
   };
 };

@@ -1,19 +1,37 @@
-import React from "react";
+import React, { useState } from "react";
 import { Card, Image } from "semantic-ui-react";
+import BookInfo from "./BookInfo";
 
-const BookCard = () => {
+const BookCard = ({ book }) => {
+  const [open, setOpen] = useState(false);
+  console.log(book);
   return (
     <>
-      <Card className="book-card">
-        <Image
-          src="http://books.google.com/books/content?id=x6aeDwAAQBAJ&printsec=frontcover&img=1&zoom=5&edge=curl&source=gbs_api"
-          wrapped
-        />
-        <Card.Content>
-          <Card.Header>Book name is here</Card.Header>
-          <Card.Meta>Author name is here</Card.Meta>
-        </Card.Content>
-      </Card>
+      {book && (
+        <>
+          <BookInfo
+            modalopen={open}
+            modalclose={() => setOpen(false)}
+            book={book}
+          />
+          <Card className="book-card" onClick={() => setOpen(true)}>
+            <Image
+              src={
+                book.volumeInfo.imageLinks &&
+                book.volumeInfo.imageLinks.thumbnail
+              }
+              wrapped
+            />
+            <Card.Content>
+              <Card.Header>{book.volumeInfo.title}</Card.Header>
+              <Card.Meta>
+                {book.volumeInfo.authors &&
+                  book.volumeInfo.authors.map((author) => <>{author} | </>)}
+              </Card.Meta>
+            </Card.Content>
+          </Card>
+        </>
+      )}
     </>
   );
 };

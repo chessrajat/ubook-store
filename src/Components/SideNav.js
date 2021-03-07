@@ -21,11 +21,15 @@ const SideNav = () => {
       >
         <h2 className="brand-name">UBook Store</h2>
         <Menu text vertical className="main-menu">
-          <Menu.Item className="side-latest">Latest</Menu.Item>
+          <Menu.Item className="side-latest">Latest Books</Menu.Item>
           <div className="side-menu-authors">
-            <Menu.Item header>Best Authors</Menu.Item>
+            <Menu.Item header className="side-latest">
+              Best Authors
+            </Menu.Item>
             {authors.map((author, i) => (
-              <Menu.Item key={i}>{author}</Menu.Item>
+              <Menu.Item className="side-latest author-size" key={i}>
+                {author}
+              </Menu.Item>
             ))}
           </div>
         </Menu>

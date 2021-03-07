@@ -2,26 +2,17 @@ import React from "react";
 import { Grid } from "semantic-ui-react";
 import BookCard from "./BookCard";
 
-const BooksGrid = () => {
+const BooksGrid = ({ books }) => {
   return (
     <>
       <h2>Latest</h2>
       <Grid className="grid-container" stackable doubling columns={6}>
-        <Grid.Column>
-          <BookCard />
-        </Grid.Column>
-        <Grid.Column>
-          <BookCard />
-        </Grid.Column>
-        <Grid.Column>
-          <BookCard />
-        </Grid.Column>
-        <Grid.Column>
-          <BookCard />
-        </Grid.Column>
-        <Grid.Column>
-          <BookCard />
-        </Grid.Column>
+        {books &&
+          books.map((book, i) => (
+            <Grid.Column key={i}>
+              <BookCard book={book} />
+            </Grid.Column>
+          ))}
       </Grid>
     </>
   );

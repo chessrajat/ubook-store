@@ -5,6 +5,30 @@
 .app {
 }
 
+/* Side Nav */
+.brand-name {
+  margin-top: 10px !important;
+  font-family: "Varela Round", sans-serif;
+}
+
+.main-menu {
+  margin-top: 40px !important;
+  margin-left: 25px !important;
+}
+
+.side-latest {
+  text-align: left !important;
+  font-family: "Varela Round", sans-serif;
+  font-size: 20px !important;
+}
+.author-size {
+  font-size: 15px !important;
+}
+
+.side-menu-authors {
+  margin-top: 40px;
+}
+
 .grid-container {
   margin-right: 250px !important;
 }
