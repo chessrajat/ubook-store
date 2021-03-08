@@ -1,7 +1,7 @@
 import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Button, Form, Icon, Input, Select } from "semantic-ui-react";
-import { getBook, getLatest, search } from "../Redux/Actions/BookActions";
+import { Button, Form, Icon, Input } from "semantic-ui-react";
+import { search } from "../Redux/Actions/BookActions";
 
 const SearchBar = () => {
   const [searchText, setSearchText] = useState("");

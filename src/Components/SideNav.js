@@ -1,6 +1,6 @@
-import React, { useEffect, useMemo, useState } from "react";
+import React, { useState } from "react";
 import { useDispatch } from "react-redux";
-import { Header, Menu, Segment, Sidebar } from "semantic-ui-react";
+import { Menu, Sidebar } from "semantic-ui-react";
 import { getLatest, search } from "../Redux/Actions/BookActions";
 
 const SideNav = () => {

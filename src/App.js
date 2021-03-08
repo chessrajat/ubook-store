@@ -1,11 +1,11 @@
 import { useEffect } from "react";
 import { useDispatch, useSelector } from "react-redux";
-import { Dimmer, Header, Loader, Segment, Sidebar } from "semantic-ui-react";
+import { Dimmer, Loader, Segment, Sidebar } from "semantic-ui-react";
 import "./App.css";
 import BooksGrid from "./Components/BooksGrid";
 import SearchBar from "./Components/SearchBar";
 import SideNav from "./Components/SideNav";
-import { getBook, getLatest, search } from "./Redux/Actions/BookActions";
+import { getLatest } from "./Redux/Actions/BookActions";
 
 function App() {
   const booksObj = useSelector((state) => state.books);
