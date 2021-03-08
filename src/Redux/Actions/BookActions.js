@@ -12,7 +12,6 @@ export const getLatest = () => {
     const endpoint = `${BASE_API}volumes?q=+inauthor:&orderBy=newest&maxResults=24`;
     try {
       const res = await axios.get(endpoint);
-      console.log(res);
       dispatch({
         type: SET_BOOKS,
         payload: res.data.items,

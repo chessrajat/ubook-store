@@ -5,6 +5,10 @@
 .app {
 }
 
+.change_font {
+  font-family: "Varela Round", sans-serif;
+}
+
 .content_segment {
   min-height: 100vh !important;
   width: 90% !important;
@@ -14,6 +18,9 @@
 .brand-name {
   margin-top: 10px !important;
   font-family: "Varela Round", sans-serif;
+}
+.brand-name:hover {
+  cursor: pointer;
 }
 
 .main-menu {

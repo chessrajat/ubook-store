@@ -4,7 +4,6 @@ import BookInfo from "./BookInfo";
 
 const BookCard = ({ book }) => {
   const [open, setOpen] = useState(false);
-  console.log(book);
   return (
     <>
       {book && (
@@ -17,16 +16,21 @@ const BookCard = ({ book }) => {
           <Card className="book-card" onClick={() => setOpen(true)}>
             <Image
               src={
-                book.volumeInfo.imageLinks &&
-                book.volumeInfo.imageLinks.thumbnail
+                book.volumeInfo.imageLinks
+                  ? book.volumeInfo.imageLinks.thumbnail
+                  : "/img/nocover.jpg"
               }
               wrapped
             />
             <Card.Content>
-              <Card.Header>{book.volumeInfo.title}</Card.Header>
-              <Card.Meta>
+              <Card.Header className="change_font">
+                {book.volumeInfo.title}
+              </Card.Header>
+              <Card.Meta className="change_font">
                 {book.volumeInfo.authors &&
-                  book.volumeInfo.authors.map((author) => <>{author} | </>)}
+                  book.volumeInfo.authors.map((author, i) => (
+                    <div key={i}>{author} | </div>
+                  ))}
               </Card.Meta>
             </Card.Content>
           </Card>

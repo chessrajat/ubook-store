@@ -1,12 +1,10 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useMemo, useState } from "react";
 import { useDispatch } from "react-redux";
 import { Header, Menu, Segment, Sidebar } from "semantic-ui-react";
 import { getLatest, search } from "../Redux/Actions/BookActions";
 
 const SideNav = () => {
   const [selected, setSelected] = useState("handpicked");
-  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
-  const [mobile, setMobile] = useState(false);
 
   const dispatch = useDispatch();
   const selectAuthor = (e) => {
@@ -20,10 +18,6 @@ const SideNav = () => {
     setSelected("handpicked");
   };
 
-  useEffect(() => {
-    console.log(windowWidth);
-  }, [windowWidth]);
-
   const authors = [
     "JK Rowling",
     "Jane Austen",
@@ -33,15 +27,10 @@ const SideNav = () => {
   ];
   return (
     <>
-      <Sidebar
-        style={{ width: "250px" }}
-        as={Menu}
-        animation="push"
-        icon="labeled"
-        vertical
-        visible
-      >
-        <h2 className="brand-name">UBook Store</h2>
+      <Sidebar as={Menu} animation="push" icon="labeled" vertical visible>
+        <h2 className="brand-name" onClick={() => selectHandpicked()}>
+          UBook Store
+        </h2>
         <Menu text vertical className="main-menu">
           <Menu.Item
             className="side-latest"

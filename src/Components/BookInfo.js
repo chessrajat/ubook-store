@@ -11,7 +11,9 @@ const BookInfo = ({ modalopen, modalclose, book }) => {
           <br></br>{" "}
           <p style={{ fontSize: "12px" }}>
             {book.volumeInfo.authors &&
-              book.volumeInfo.authors.map((author) => <span>{author} | </span>)}
+              book.volumeInfo.authors.map((author, i) => (
+                <span key={i}>{author} | </span>
+              ))}
           </p>
         </Modal.Header>
         <Modal.Content image scrolling>
