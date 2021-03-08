@@ -12,4 +12,4 @@ using google book API
 
 ## Preview
 
-
+![preview photo](https://github.com/chessrajat/ubook-store/blob/master/public/img/home.PNG?raw=true)
