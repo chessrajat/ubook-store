@@ -5,6 +5,11 @@
 .app {
 }
 
+.content_segment {
+  min-height: 100vh !important;
+  width: 90% !important;
+}
+
 /* Side Nav */
 .brand-name {
   margin-top: 10px !important;
@@ -34,4 +39,8 @@
 }
 
 .book-card {
+}
+
+.search-container {
+  margin-right: 300px;
 }

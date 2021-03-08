@@ -1,7 +1,29 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
+import { useDispatch } from "react-redux";
 import { Header, Menu, Segment, Sidebar } from "semantic-ui-react";
+import { getLatest, search } from "../Redux/Actions/BookActions";
 
 const SideNav = () => {
+  const [selected, setSelected] = useState("handpicked");
+  const [windowWidth, setWindowWidth] = useState(window.innerWidth);
+  const [mobile, setMobile] = useState(false);
+
+  const dispatch = useDispatch();
+  const selectAuthor = (e) => {
+    const uri = `volumes?q=+inauthor:${e.target.outerText}`;
+    dispatch(search(uri));
+    setSelected(e.target.outerText);
+  };
+
+  const selectHandpicked = () => {
+    dispatch(getLatest());
+    setSelected("handpicked");
+  };
+
+  useEffect(() => {
+    console.log(windowWidth);
+  }, [windowWidth]);
+
   const authors = [
     "JK Rowling",
     "Jane Austen",
@@ -21,13 +43,26 @@ const SideNav = () => {
       >
         <h2 className="brand-name">UBook Store</h2>
         <Menu text vertical className="main-menu">
-          <Menu.Item className="side-latest">Latest Books</Menu.Item>
+          <Menu.Item
+            className="side-latest"
+            name="handpicked"
+            onClick={() => selectHandpicked()}
+            active={selected === "handpicked"}
+          >
+            Handpicked
+          </Menu.Item>
           <div className="side-menu-authors">
             <Menu.Item header className="side-latest">
               Best Authors
             </Menu.Item>
             {authors.map((author, i) => (
-              <Menu.Item className="side-latest author-size" key={i}>
+              <Menu.Item
+                className="side-latest author-size"
+                value={author}
+                active={selected === author}
+                onClick={(e) => selectAuthor(e)}
+                key={i}
+              >
                 {author}
               </Menu.Item>
             ))}

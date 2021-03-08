@@ -2,7 +2,6 @@ import { SELECT_BOOK, SET_BOOKS } from "../../Utils/Constants";
 import { createReducer } from "../../Utils/CreateReducer";
 
 const initialState = {
-  loading: true,
   books: [],
   selectedBook: {},
 };

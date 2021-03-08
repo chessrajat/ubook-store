@@ -21,7 +21,7 @@ const SearchBar = () => {
   return (
     <div className="search-container">
       <Form onSubmit={searchSubmit}>
-        <Input type="text">
+        <Input fluid>
           <input
             required
             value={searchText}
@@ -33,6 +33,7 @@ const SearchBar = () => {
           options={options}
           defaultValue="intitle"
         /> */}
+
           <Button type="submit">
             <Icon name="search" />
           </Button>
